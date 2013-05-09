@@ -3,47 +3,55 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.carousel { z-index: -99; }
 
-
-
-.carousel-inner .item{
-	position: relative;
-	display: block;
-	margin: auto;
-	top: 0;
-	left: 0;
-	width: 100%;
-	max-width: 100%;
-	min-width: 50%;
-	min-height: 50%;
-	z-index: -1;
-}
-
-.carousel-inner .item img{
-	top: 0;
-	left: 0;
-	min-width: 100%;
-	height: 100%;
-}
-
-/*.carousel-inner .item{
+.carousel .item{
 	position: fixed;
-	top: -50%;
-	left: -50%;
-	width: 200%;
-	height: 200%;
-	z-index: -1;
+  width: 100%; 
+  height: 100%;
+	-webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
-.carousel-inner .item img{
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	max-width: 100%;
-	min-width: 50%;
-	min-height: 50%;
+/*.carousel .active.left, .carousel .active.right {
+    left:0;
+    opacity:0;
+    z-index:2;
+}
+.carousel .next, .carousel .prev {
+    left:0;
+    opacity:1;
+    z-index:1;
 }*/
+
+
+.carousel .one{
+	background: url("/assets/slideshow1.jpg");
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+.carousel .two{
+	background: url("/assets/slideshow3.jpg");
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+.carousel .three{
+	background: url("/assets/slideshow4.jpg");
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+.carousel .four{
+	background: url("/assets/slideshow5.jpg");
+  background-size: cover;
+  -moz-background-size: cover;
+}
+
+
+
 
