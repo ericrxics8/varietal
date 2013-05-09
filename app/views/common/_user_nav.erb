@@ -1,0 +1,25 @@
+<!-- 
+<div id="nav" class="user_navigation">
+
+  <% if user_signed_in? %>
+      Hi! <%= current_user.email %>
+      <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
+
+  <% else %>
+			<div class="btn-group span1 offset2">
+			  <button class="btn btn-success btn-mini" id="dLabel" role="button" 
+			  onclick="self.location.href='<%= new_user_session_path %>'">
+			    Sign in
+			  </button>
+			</div>
+
+			<div class="btn-group span1">
+			  <button class="btn btn-success btn-mini" id="dLabel" role="button" 
+			  onclick="self.location.href='<%= new_user_registration_path %>'">
+			    Sign up
+			  </button>
+			</div>
+  <% end %>
+
+</div>
+ -->
