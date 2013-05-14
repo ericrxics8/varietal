@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.carousel { z-index: -99; }
+.carousel { 
+  z-index: -99;
+}
 
 .carousel .item{
 	position: fixed;
@@ -31,24 +33,28 @@
 .carousel .one{
 	background: url("/assets/slideshow1.jpg");
   background-size: cover;
+  background-position: 0 Y;
   -moz-background-size: cover;
 }
 
 .carousel .two{
 	background: url("/assets/slideshow3.jpg");
   background-size: cover;
+  background-position: 0 Y;
   -moz-background-size: cover;
 }
 
 .carousel .three{
 	background: url("/assets/slideshow4.jpg");
   background-size: cover;
+  background-position: 0 Y;
   -moz-background-size: cover;
 }
 
 .carousel .four{
 	background: url("/assets/slideshow5.jpg");
   background-size: cover;
+  background-position: 0 Y;
   -moz-background-size: cover;
 }
 
