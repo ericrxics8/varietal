@@ -16,4 +16,5 @@
 //
 // Loads all Bootstrap javascripts
 //= require bootstrap
-//= require bootstrap-dropdown
+//= require bootstrap-dropdown//= require jquery.fancybox.pack.js
+//= require jquery.bpopup.min.js

@@ -46,9 +46,10 @@
         </div>
 
 			  <% if user_signed_in? %>
-			      Hi! <%= current_user.email %>
-			      <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
-
+            <p class="text-warning text-right">
+              <small><%= current_user.username %></small>
+              <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
+            </p>
 			  <% else %>
 						<div class="btn-group span1 offset4">
 						  <button class="btn btn-success btn-mini" id="dLabel" role="button"
