@@ -2,6 +2,11 @@ class PagesController < ApplicationController
 
 	def index
 
-	end
+  end
+
+  #list the latest news
+  def show
+
+  end
 	
 end

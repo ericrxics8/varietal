@@ -21,14 +21,16 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
 gem 'will_paginate', '~> 3.0'
-
 gem 'bootstrap-sass', '~> 2.3.1.0'
-
 gem 'devise'
-
 gem 'paperclip'
+gem 'gmaps4rails'
+
+group :development do
+  gem 'guard-livereload'
+end
+
 
 
 # To use ActiveModel has_secure_password

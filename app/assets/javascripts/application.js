@@ -16,5 +16,30 @@
 //
 // Loads all Bootstrap javascripts
 //= require bootstrap
-//= require bootstrap-dropdown//= require jquery.fancybox.pack.js
+//= require jquery.fancybox.pack.js
 //= require jquery.bpopup.min.js
+
+$(document).ready(function() {
+  $('#signinbtn').bind('click', function(e) {
+    e.preventDefault();
+    $('#hiddenSingup').hide();
+    $('#hiddenSingin').bPopup({
+      zIndex:2,
+      modalClose:true
+    });
+  });
+
+  $('#signupbtn').bind('click', function(e) {
+    e.preventDefault();
+    $('#hiddenSingin').hide();
+    $('#hiddenSingup').bPopup({
+      zIndex:2,
+      modalClose:true
+    });
+  });
+
+});
+
+
+
+
