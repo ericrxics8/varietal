@@ -22,21 +22,30 @@
 $(document).ready(function() {
   $('#signinbtn').bind('click', function(e) {
     e.preventDefault();
+    document.getElementById("signupbtn").disabled = true;
     $('#hiddenSingup').hide();
     $('#hiddenSingin').bPopup({
       zIndex:2,
-      modalClose:true
+      modalClose:true,
+      onClose: function(){
+        document.getElementById("signupbtn").disabled = false;
+      }
     });
   });
 
   $('#signupbtn').bind('click', function(e) {
     e.preventDefault();
+    document.getElementById("signinbtn").disabled = true;
     $('#hiddenSingin').hide();
     $('#hiddenSingup').bPopup({
       zIndex:2,
-      modalClose:true
+      modalClose:true,
+      onClose: function(){
+        document.getElementById("signinbtn").disabled = false;
+      }
     });
   });
+
 
 });
 

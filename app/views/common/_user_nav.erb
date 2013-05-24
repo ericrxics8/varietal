@@ -28,13 +28,15 @@
               </ul>
             </li>
 
-            <li class="">
+            <li>
               <!--<div class="container">-->
                 <div class="row-fluid">
                   <div class="btn-group  ">
                     <div class="btn-group">
-                      <button id="claimPlace" class="btn btn-info btn-small" role="button">
-                        Claim Worderful Place!
+                      <button id="claimPlace" class="btn btn-info btn-small" role="button"
+                              onclick="document.location.href='/claim_place';return false;"
+                      >
+                      Claim Place!
                       </button>
                     </div>
 
@@ -42,32 +44,32 @@
                 </div>
               <!--</div>-->
             </li>
+
+            <% if user_signed_in? %>
+              <li>
+                <div class="text-warning text-right offset6">
+                  <div id="navbarUsername">
+                    <%= current_user.username %>
+                    <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
+                  </div>
+                </div>
+              </li>
+            <% else %>
+              <li class="btn-group offset6">
+                <button class="btn btn-success btn-mini" id="signinbtn" role="button">
+                  <!--onclick="self.location.href='<%= new_user_session_path %>'"-->
+                  Sign in
+                </button>
+
+                <button class="btn btn-success btn-mini" id="signupbtn" role="button">
+                  <!--onclick="self.location.href='<%= new_user_registration_path %>'"-->
+                  Sign up
+                </button>
+              </li>
+            <% end %>
+
           </ul>
         </div>
-
-			  <% if user_signed_in? %>
-            <div class="text-warning text-right">
-              <div id="navbarUsername">
-                <%= current_user.username %>
-                <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
-              </div>
-            </div>
-			  <% else %>
-						<div class="btn-group span1 offset4">
-						  <button class="btn btn-success btn-mini" id="signinbtn" role="button">
-                <!--onclick="self.location.href='<%= new_user_session_path %>'"-->
-						    Sign in
-						  </button>
-
-						  <button class="btn btn-success btn-mini" id="signupbtn" role="button">
-                <!--onclick="self.location.href='<%= new_user_registration_path %>'"-->
-						    Sign up
-						  </button>
-						</div>
-			  <% end %>
-
-
-
 			</div>
 		</div>
 	</div>
