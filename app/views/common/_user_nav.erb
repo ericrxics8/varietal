@@ -10,7 +10,7 @@
           <ul class="nav">
             <!--<li class="active"><a href="#">Home</a></li>-->
 
-            <li class="dropdown">
+            <li class="dropdown navBtn">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coffee Varietal <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                 <li><a tabindex="-1">Caturra</a></li>
@@ -28,18 +28,18 @@
               </ul>
             </li>
 
+            <li class="navBtn">
+              <a href="#">Atmosphere</a>
+            </li>
+
             <li>
               <!--<div class="container">-->
-                <div class="row-fluid">
-                  <div class="btn-group  ">
-                    <div class="btn-group">
-                      <button id="claimPlace" class="btn btn-info btn-small" role="button"
-                              onclick="document.location.href='/claim_place';return false;"
-                      >
+                <div class="row-fluid" style="margin-left: 15px; margin-top:6px;">
+                  <div class="btn-group">
+                    <button id="claimPlace" class="btn btn-info btn-small" role="button"
+                            onclick="document.location.href='/claim_place';return false;">
                       Claim Place!
-                      </button>
-                    </div>
-
+                    </button>
                   </div>
                 </div>
               <!--</div>-->
@@ -47,7 +47,7 @@
 
             <% if user_signed_in? %>
               <li>
-                <div class="text-warning text-right offset6">
+                <div class="text-warning text-right offset4">
                   <div id="navbarUsername">
                     <%= current_user.username %>
                     <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
@@ -55,7 +55,7 @@
                 </div>
               </li>
             <% else %>
-              <li class="btn-group offset6">
+              <li class="btn-group offset4">
                 <button class="btn btn-success btn-mini" id="signinbtn" role="button">
                   <!--onclick="self.location.href='<%= new_user_session_path %>'"-->
                   Sign in
