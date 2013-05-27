@@ -17,7 +17,8 @@
                  style=" width:555px; height:25px; font-size:14px;">
 
           <button id="search" class="btn btn-info btn" role="button"
-                  style="margin-top: -7px">
+                  style="margin-top: -7px"
+                  onclick="search();">
             Search
           </button>
 
@@ -42,32 +43,33 @@
 
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    var mapOptions = {
-      zoom: 18,
-      center: new google.maps.LatLng(25.033493,121.564101),
-      disableDefaultUI: true,
-      panControl: false,
-      zoomControl: true,
-      scaleControl: false,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapTypeControl: true,
-      mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-          },
-          zoomControl: true,
-          zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL
-          }
+  var geocoder = new google.maps.Geocoder();
+  var loclat = 25.033493
+  var loclng = 121.564101
+  var mapOptions = {
+    zoom: 18,
+    center: new google.maps.LatLng(loclat,loclng),
+    disableDefaultUI: true,
+    panControl: false,
+    zoomControl: true,
+    scaleControl: false,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+      style: google.maps.ZoomControlStyle.SMALL
     }
+  }
+
+  $(document).ready(function(){
 
     var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 
-    var geocoder = new google.maps.Geocoder();
-
     $(function() {
       $("#searchbox").autocomplete({
-
         source: function(request, response) {
 
           if (geocoder == null){
@@ -109,5 +111,53 @@
         }
       });
     });
+
+    $('input[type=text]').on('keyup', function(e) {
+      if (e.which == 13) {
+        e.preventDefault();
+        search();
+      }
+    });
+
   });
+
+
+
+  function search(){
+    geocoder.geocode(
+        {'address': $('#searchbox').val()},
+        function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            var loc = results[0].geometry.location;
+//            alert("lat=" + loc.lat());
+//            alert("lng=" + loc.lng());
+
+            mapOptions = {
+              zoom: 18,
+              center: new google.maps.LatLng(loc.lat(),loc.lng()),
+              disableDefaultUI: true,
+              panControl: false,
+              zoomControl: true,
+              scaleControl: false,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              mapTypeControl: true,
+              mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+              },
+              zoomControl: true,
+              zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.SMALL
+              }
+            }
+
+            var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+
+          }
+          else {
+            alert("Not found: " + status);
+          }
+        }
+    );
+  }
+
 </script>
