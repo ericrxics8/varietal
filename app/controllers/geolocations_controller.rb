@@ -1,0 +1,3 @@
+class GeolocationsController < ApplicationController
+
+end

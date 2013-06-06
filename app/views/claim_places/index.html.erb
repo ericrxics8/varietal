@@ -23,7 +23,8 @@
           </button>
 
           <button id="claimPlace" class="btn btn-info btn" role="button"
-                  style="margin-top: -7px">
+                  style="margin-top: -7px"
+                  onclick="document.location.href='<%= new_claim_place_path %>';return false;">
             Claim Your Store!
           </button>
 
@@ -32,6 +33,7 @@
       </div>
     </div>
   </div>
+
 
 <div id="map-canvas" style="width:100%; height: 600px; margin-top: 75px;"></div>
 
@@ -52,7 +54,7 @@
     disableDefaultUI: true,
     panControl: false,
     zoomControl: true,
-    scaleControl: false,
+    scaleControl: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: true,
     mapTypeControlOptions: {

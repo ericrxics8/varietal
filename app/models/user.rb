@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :login, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  # 與claim_places 做關連
+  has_many :claim_places
 
   before_create :create_login
 

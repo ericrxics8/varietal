@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GeolocationControllerTest < ActionController::TestCase
+class ClaimPlacesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

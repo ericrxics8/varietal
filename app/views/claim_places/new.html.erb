@@ -1,0 +1,22 @@
+<div class="container" style="margin-top: 200px;">
+
+  <%= simple_form_for @claimPlace do |f| %>
+    <%= f.input :storeName,
+                hint:'Store Name',
+                :input_html => { :class => "input-xxlarge"} %>
+
+    <%= f.input :address,
+                label: 'Address!',
+                :input_html => { :class => "input-xxlarge"} %>
+
+
+    <%= f.input :description, :input_html => { :class => "input-xxlarge"} %>
+
+    <div class="form-actions">
+
+      <%= f.submit "Submit", :disable_with => 'Submiting...',
+                   :class => "btn btn-primary"%>
+    </div>
+  <% end %>
+
+</div>

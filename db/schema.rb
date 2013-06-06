@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526082333) do
+ActiveRecord::Schema.define(:version => 20130604131717) do
 
   create_table "claim_places", :force => true do |t|
-    t.string   "username",   :default => "", :null => false
-    t.string   "address",    :default => "", :null => false
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.string   "username",    :default => "",    :null => false
+    t.string   "address",     :default => "",    :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "userid",      :default => 0,     :null => false
+    t.string   "storeName",   :default => "",    :null => false
+    t.string   "ownerEmail",  :default => "",    :null => false
+    t.integer  "ownerPhone",  :default => 0,     :null => false
+    t.string   "description", :default => "",    :null => false
+    t.float    "latitude",    :default => 0.0,   :null => false
+    t.float    "longitude",   :default => 0.0,   :null => false
+    t.boolean  "owner",       :default => false, :null => false
   end
 
   create_table "models", :force => true do |t|

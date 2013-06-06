@@ -26,6 +26,8 @@ gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'devise'
 gem 'paperclip'
 gem 'gmaps4rails'
+gem 'simple_form'
+gem 'country_select', '~> 1.1.3'
 
 group :development do
   gem 'guard-livereload'

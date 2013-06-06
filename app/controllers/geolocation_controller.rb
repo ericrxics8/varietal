@@ -1,3 +1,0 @@
-class GeolocationController < ApplicationController
-
-end
