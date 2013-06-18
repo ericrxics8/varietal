@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyText
+  claim_palce_id: 1
+
+two:
+  description: MyText
+  claim_palce_id: 1

@@ -32,6 +32,10 @@
               <a href="#">Atmosphere</a>
             </li>
 
+            <li class="navBtn">
+              <a href="#">POS</a>
+            </li>
+
             <li>
               <!--<div class="container">-->
                 <div class="row-fluid" style="margin-left: 15px; margin-top:6px;">
@@ -47,7 +51,7 @@
 
             <% if user_signed_in? %>
               <li>
-                <div class="text-warning text-right offset4">
+                <div class="text-warning text-right offset3">
                   <div id="navbarUsername">
                     <%= current_user.username %>
                     <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
@@ -55,7 +59,7 @@
                 </div>
               </li>
             <% else %>
-              <li class="btn-group offset4">
+              <li class="btn-group offset3">
                 <button class="btn btn-success btn-mini" id="signinbtn" role="button">
                   <!--onclick="self.location.href='<%= new_user_session_path %>'"-->
                   Sign in

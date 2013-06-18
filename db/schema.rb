@@ -11,21 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604131717) do
+ActiveRecord::Schema.define(:version => 20130615103024) do
 
   create_table "claim_places", :force => true do |t|
-    t.string   "username",    :default => "",    :null => false
-    t.string   "address",     :default => "",    :null => false
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "userid",      :default => 0,     :null => false
-    t.string   "storeName",   :default => "",    :null => false
-    t.string   "ownerEmail",  :default => "",    :null => false
-    t.integer  "ownerPhone",  :default => 0,     :null => false
-    t.string   "description", :default => "",    :null => false
-    t.float    "latitude",    :default => 0.0,   :null => false
-    t.float    "longitude",   :default => 0.0,   :null => false
-    t.boolean  "owner",       :default => false, :null => false
+    t.string   "address",                      :default => "",    :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+    t.integer  "userid",                       :default => 0,     :null => false
+    t.string   "storeName",                    :default => "",    :null => false
+    t.string   "ownerEmail",                   :default => ""
+    t.integer  "ownerPhone",    :limit => 255, :default => 0
+    t.string   "description",                  :default => ""
+    t.float    "latitude",                     :default => 0.0
+    t.float    "longitude",                    :default => 0.0
+    t.boolean  "owner",                        :default => false
+    t.string   "ownerWebsite"
+    t.integer  "owner_user_id"
   end
 
   create_table "models", :force => true do |t|
@@ -45,6 +46,27 @@ ActiveRecord::Schema.define(:version => 20130604131717) do
 
   add_index "models", ["email"], :name => "index_models_on_email", :unique => true
   add_index "models", ["reset_password_token"], :name => "index_models_on_reset_password_token", :unique => true
+
+  create_table "products", :force => true do |t|
+    t.string   "productName",   :default => "", :null => false
+    t.integer  "fragrance"
+    t.integer  "flavor"
+    t.integer  "aftertaste"
+    t.integer  "acidity"
+    t.integer  "body"
+    t.integer  "uniformity",    :default => 10
+    t.integer  "balance"
+    t.integer  "cleanCup",      :default => 10
+    t.integer  "sweetness",     :default => 10
+    t.integer  "overall"
+    t.integer  "taint",         :default => 0
+    t.integer  "fault",         :default => 0
+    t.integer  "totalScore"
+    t.integer  "owner_user_id", :default => 0,  :null => false
+    t.text     "description"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

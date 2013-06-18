@@ -1,28 +1,40 @@
 class ClaimPlacesController < ApplicationController
+  include ActiveModel::ForbiddenAttributesProtection
+
   def index
     @claimPlace = ClaimPlace.all
-    #
-    #respond_to do |format|
-    #  format.html #index.html.erb.erb
-    #  format.xml {render :xml => @claimPlace}
-    #end
+    
+    respond_to do |format|
+     format.html #index.html.erb.erb
+     format.xml {render :xml => @claimPlace}
+     format.json { render :json => @claimPlace.to_json }
+    end
   end
 
   def show
-    @claimPlace = ClaimPlace.find(params[:claim_places])
+    @claimPlace = ClaimPlace.find(params[:id])
   end
 
   def new
     @claimPlace = ClaimPlace.new
-
   end
 
   def create
-    @claimPlace = ClaimPlace.new(params[:claim_places])
+    @claimPlace = ClaimPlace.new(claim_place_params)
+    # raw_params = params[:claim_place]
+    # @claimPlace = ClaimPlace.create(raw_params.permit(:storeName, :address, :ownerPhone, :ownerEmail, :ownerWebsite, :owner, :description))
+    @claimPlace = ClaimPlace.new(claim_place_params)
+
+    Rails.logger.debug("ClaimPlace!: #{@claimPlace.inspect}")
+    # Rails.logger.debug("CurrentUserId:#{{current_user.id}")"}")
+    # Rails.logger.debug("Params : #{params[:claim_place_params]}")
 
     if @claimPlace.save
-      redirect_to claim_place_path
+      Rails.logger.debug("ClaimPlace was saved !!!")
+      redirect_to claim_places_path
     else
+      Rails.logger.debug("ClaimPlace wasn't saved !!!")
+
       render :new
     end
   end
@@ -51,11 +63,12 @@ class ClaimPlacesController < ApplicationController
     redirect_to claim_place_path
   end
 
-  private
 
-  def claim_place_params
-    params.require(:claim_places).permit(:title, :description)
-  end
+  private
+    def claim_place_params
+      params.require(:claim_place).permit(:storeName, :address, :ownerPhone, :ownerEmail, :ownerWebsite, :owner, :description)
+      # params[:claim_place].slice(:storeName, :address, :ownerEmail, :ownerPhone, :description, :owner, :ownerWebsite)
+    end
 
 
 

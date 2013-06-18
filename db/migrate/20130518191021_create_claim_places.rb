@@ -1,12 +1,11 @@
 class CreateClaimPlaces < ActiveRecord::Migration
   def change
     create_table :claim_places do |t|
-      t.integer :user_id, :null => false, :default => ""
+      t.integer :userid, :null => false, :default => ""
       t.string :address, :null => false, :default => ""
-      t.string :store_name, :null => false, :default => ""
-      t.integer :owner_user_id, :null => false, :default =>""
-      t.string :owner_email, :null => false, :default => ""
-      t.integer :owner_phone, :null => false, :default => ""
+      t.string :storeName, :null => false, :default => ""
+      t.string :ownerEmail, :null => false, :default => ""
+      t.integer :ownerPhone, :null => false, :default => ""
       t.string :description, :null => false, :default => ""
       t.float :latitude, :null => false, :default => ""
       t.float :longitude, :null => false, :default => ""

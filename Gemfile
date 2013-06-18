@@ -28,6 +28,7 @@ gem 'paperclip'
 gem 'gmaps4rails'
 gem 'simple_form'
 gem 'country_select', '~> 1.1.3'
+gem 'strong_parameters'
 
 group :development do
   gem 'guard-livereload'

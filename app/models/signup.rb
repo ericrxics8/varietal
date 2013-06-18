@@ -14,5 +14,5 @@ class Signup < ActiveRecord::Base
 
   end
 
-  def 
+
 end
