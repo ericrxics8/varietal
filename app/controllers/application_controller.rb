@@ -43,4 +43,20 @@ class ApplicationController < ActionController::Base
     where(["username = :value OR email = :value", { :value => login }]).first
   end
 
+  def login_required
+    if current_user.blank?
+      respond_to do |format|
+        format.html {
+          authenticate_user!
+        }
+        format.js{
+          render :partial => "devise/shared/sessions_new"
+        }
+        format.all{
+          head(:unauthorized)
+        }
+      end
+    end
+  end
+
 end

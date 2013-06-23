@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   # 與claim_places 做關連
   has_many :claim_places
+  has_many :products
 
   before_create :create_login
 

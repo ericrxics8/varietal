@@ -1,12 +1,30 @@
 <div class="span12">
 
-  <div class="claimPlace">
-    <%= link_to("Edit", edit_group_path(@claimPlace) ,
-                :class => "btn btn-mini btn-primary pull-right")%>
+  <div class="claimPlace pull-right">
+    <%= link_to("Edit", edit_claim_place_path(@claimPlace) ,
+                :class => "btn btn-mini")%>
   </div>
+
+  <%= link_to("New Post", new_claim_place_path(@claimPlace) ,
+              :class => "btn btn-mini btn-primary")%>
+  &nbsp;
+</div>
 
   <h2> <%= @claimPlace.storeName %> </h2>
 
   <p> <%= @claimPlace.description %> </p>
+
+
+  <table class="table">
+    <tbody>
+      <% @products.each do |product| %> <tr>
+        <td> <%= product.productName %> </td>
+        <td> <%= link_to("Edit", edit_claim_place_product_path(product.claim_place, product), :class=>"btn btn-mini")%>
+          <%= link_to("Delete", claim_place_product_path(product.claim_place, product), :class => "btn btn-mini",:method=>:delete,:confirm=>"Are you sure?")%>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>

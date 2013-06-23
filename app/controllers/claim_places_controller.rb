@@ -1,6 +1,8 @@
 class ClaimPlacesController < ApplicationController
   include ActiveModel::ForbiddenAttributesProtection
 
+  before_filter :login_required, :only => [:new, :create, :edit, :update, :destroy]
+
   def index
     @claimPlace = ClaimPlace.all
     
@@ -12,7 +14,8 @@ class ClaimPlacesController < ApplicationController
   end
 
   def show
-    @claimPlace = ClaimPlace.find(params[:id])
+    @claimPlace = ClaimPlace.params[:id]
+    @products = @claimPlace.products
   end
 
   def new
@@ -21,13 +24,8 @@ class ClaimPlacesController < ApplicationController
 
   def create
     @claimPlace = ClaimPlace.new(claim_place_params)
-    # raw_params = params[:claim_place]
-    # @claimPlace = ClaimPlace.create(raw_params.permit(:storeName, :address, :ownerPhone, :ownerEmail, :ownerWebsite, :owner, :description))
-    @claimPlace = ClaimPlace.new(claim_place_params)
 
-    Rails.logger.debug("ClaimPlace!: #{@claimPlace.inspect}")
-    # Rails.logger.debug("CurrentUserId:#{{current_user.id}")"}")
-    # Rails.logger.debug("Params : #{params[:claim_place_params]}")
+    # Rails.logger.debug("ClaimPlace!: #{@claimPlace.inspect}")
 
     if @claimPlace.save
       Rails.logger.debug("ClaimPlace was saved !!!")
