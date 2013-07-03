@@ -1,0 +1,23 @@
+<%= simple_form_for [@claimPlace,@product] do |f| %>
+
+    <%= f.input :productName,hint:'Every degree is 0.25' , :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :fragrance, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :flavor, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :aftertaste, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :acidity, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :body, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :balance, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :uniformity, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :cleanCup, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :sweetness, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :overall, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :taint, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :fault, :input_html => { :class => "input-xxlarge"} %>
+    <%= f.input :description,as: :text, :input_html => { :class => "input-xxlarge"} %>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", :disable_with => 'Submiting...',
+                   :class => "btn btn-primary"%>
+    </div>
+
+<% end %>

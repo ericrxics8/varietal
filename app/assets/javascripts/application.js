@@ -18,6 +18,7 @@
 //= require bootstrap
 //= require jquery.fancybox.pack.js
 //= require jquery.bpopup.min.js
+//= require jquery.chart.min.js
 
 $(document).ready(function() {
   $('#signinbtn').bind('click', function(e) {

@@ -37,7 +37,7 @@
 
 <div id="map-canvas" style="width:100%; height: 700px; margin-top: 75px;"></div>
 
-<div class="span6 offset12">
+<div class="span4 offset12">
   <img src="/assets/powered-by-google-on-white.png"/>
 </div>
 
@@ -69,6 +69,12 @@
   $(document).ready(function(){
 
     var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+
+    new google.maps.Marker({
+      position: new google.maps.LatLng(loclat,loclng),
+      map: map,
+      title: "Taiwan Taipei 101"
+    });
 
     $(function() {
       $("#searchbox").autocomplete({
@@ -153,6 +159,10 @@
             }
 
             var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+            new google.maps.Marker({
+              position: new google.maps.LatLng(loc.lat(),loc.lng()),
+              map: map
+            });
 
           }
           else {

@@ -34,4 +34,7 @@ Varietal::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #加入寄信時預設的網站網址
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

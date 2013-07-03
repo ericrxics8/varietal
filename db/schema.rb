@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615103024) do
+ActiveRecord::Schema.define(:version => 20130630092545) do
 
   create_table "claim_places", :force => true do |t|
     t.string   "address",                      :default => "",    :null => false
     t.datetime "created_at",                                      :null => false
     t.datetime "updated_at",                                      :null => false
-    t.integer  "userid",                       :default => 0,     :null => false
+    t.integer  "user_id",                      :default => 0,     :null => false
     t.string   "storeName",                    :default => "",    :null => false
     t.string   "ownerEmail",                   :default => ""
     t.integer  "ownerPhone",    :limit => 255, :default => 0
-    t.string   "description",                  :default => ""
+    t.text     "description",   :limit => 255, :default => ""
     t.float    "latitude",                     :default => 0.0
     t.float    "longitude",                    :default => 0.0
     t.boolean  "owner",                        :default => false
@@ -48,29 +48,31 @@ ActiveRecord::Schema.define(:version => 20130615103024) do
   add_index "models", ["reset_password_token"], :name => "index_models_on_reset_password_token", :unique => true
 
   create_table "products", :force => true do |t|
-    t.string   "productName",   :default => "", :null => false
-    t.integer  "fragrance"
-    t.integer  "flavor"
-    t.integer  "aftertaste"
-    t.integer  "acidity"
-    t.integer  "body"
-    t.integer  "uniformity",    :default => 10
-    t.integer  "balance"
-    t.integer  "cleanCup",      :default => 10
-    t.integer  "sweetness",     :default => 10
-    t.integer  "overall"
-    t.integer  "taint",         :default => 0
-    t.integer  "fault",         :default => 0
-    t.integer  "totalScore"
-    t.integer  "owner_user_id", :default => 0,  :null => false
+    t.string   "productName",    :default => "",   :null => false
+    t.float    "fragrance"
+    t.float    "flavor"
+    t.float    "aftertaste"
+    t.float    "acidity"
+    t.float    "body"
+    t.float    "uniformity",     :default => 10.0
+    t.float    "balance"
+    t.float    "cleanCup",       :default => 10.0
+    t.float    "sweetness",      :default => 10.0
+    t.float    "overall"
+    t.integer  "taint",          :default => 0
+    t.integer  "fault",          :default => 0
+    t.float    "totalScore"
+    t.integer  "owner_user_id",  :default => 0,    :null => false
     t.text     "description"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.integer  "claim_place_id"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -79,12 +81,13 @@ ActiveRecord::Schema.define(:version => 20130615103024) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "username"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.boolean  "is_admin",               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

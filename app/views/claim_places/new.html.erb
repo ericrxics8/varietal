@@ -24,9 +24,10 @@
     <%= f.input :owner,
                 label:'Are you Store Owner ?',
                 as: :radio_buttons
-                 %>
+    %>
 
-    <%= f.input :description, :input_html => { :class => "input-xxlarge"} %>
+
+    <%= f.input :description, as: :text, :input_html => { :class => "input-xxlarge"} %>
 
     <div class="form-actions">
       <%= f.submit "Submit", :disable_with => 'Submiting...',

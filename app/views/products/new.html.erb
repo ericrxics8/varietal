@@ -1,11 +1,9 @@
-<div class="span12">
-  <%= simple_form_for [@claimPlace,@product] do |f| %>
-    <%= f.input :productName, :input_html => { :class => "input-xxlarge"} %>
-
-    <div class="form-actions">
-      <%= f.submit "Submit", :disable_with => 'Submiting...',
-                   :class => "btn btn-primary"%>
-    </div>
-
-  <% end %>
+<div class="container productsContainer">
+  <%= render :partial => 'form' %>
 </div>
+
+<style type="text/css">
+  .productsContainer{
+    padding-top: 100px;
+  }
+</style>
