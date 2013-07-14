@@ -1,38 +1,274 @@
-<div class="container" style="margin-top: 200px;">
-
-  <%= simple_form_for @claimPlace do |f| %>
-    <%= f.input :storeName,
-                label:'Store Name',
-                :input_html => { :class => "input-medium" } %>
-
-    <%= f.input :address,
-                label: 'Store Address',
-                :input_html => { :class => "input-xxlarge"} %>
-
-    <%= f.input :ownerPhone,
-                label:'Store Phone',
-                :input_html => { :class => "input-medium" } %>
-
-    <%= f.input :ownerEmail,
-                label:'Store Email',
-                :input_html => { :class => "input-xlarge" } %>
-
-    <%= f.input :ownerWebsite,
-                label:'Store Website',
-                :input_html => { :class => "input-xlarge" } %>
-
-    <%= f.input :owner,
-                label:'Are you Store Owner ?',
-                as: :radio_buttons
-    %>
+<script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAqPJM7UHDfLFx5a8v192BuKLi7BAN69_s&sensor=true">
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
 
-    <%= f.input :description, as: :text, :input_html => { :class => "input-xxlarge"} %>
+<div id="map-canvas" style=""></div>
 
-    <div class="form-actions">
-      <%= f.submit "Submit", :disable_with => 'Submiting...',
-                   :class => "btn btn-primary"%>
+  <div class="navWraper searchWraper"
+     style="margin-top: 85px; font-size: 22px; font-weight:bold;">  
+      <input type="text" value="" id="searchbox"
+             style=" width:444px; height:30px; font-size:20px;">
+
+      <button id="search" class="btn btn-info btn" role="button"
+              style="margin-top: -7px"
+              onclick="search();">
+        Search
+      </button>
+  </div>
+
+  <div class="navbar offset2 suspensionForm">
+    <div class="navWraper" style="">
+      
+      <%= simple_form_for @claimPlace do |f| %>
+        <%= f.input :storeName,
+                    label:'Store Name',
+                    :input_html => { :class => "input-medium" } %>
+
+        <%= f.input :address,
+                    label: 'Store Address',
+                    :input_html => { :class => "input-xxlarge"} %>
+
+        <%= f.input :ownerPhone,
+                    label:'Store Phone',
+                    :input_html => { :class => "input-medium" } %>
+
+        <%= f.input :ownerEmail,
+                    label:'Store Email',
+                    :input_html => { :class => "input-xlarge" } %>
+
+        <%= f.input :ownerWebsite,
+                    label:'Store Website',
+                    :input_html => { :class => "input-xlarge" } %>
+
+        <!-- %= f.input :owner,
+                    label:'Are you Store Owner ?',
+                    as: :radio_buttons
+        %>
+
+
+        %= f.input :description, as: :text, :input_html => { :class => "input-xxlarge"} %> -->
+
+        <div class="form-actions">
+          <%= f.submit "Claim Your Store !", :disable_with => 'Submiting...',
+                       :class => "btn btn-primary"%>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div> 
+  
 
-</div>
+  <!-- <div class="span4 offset12">
+    <img src="/assets/powered-by-google-on-white.png"/>
+  </div> -->  
+
+<style type="text/css">
+  html { height: 99.9%}
+  body { height: 100%; margin: 0px; padding: 0px }
+  #map-canvas { height: 100% }
+
+  .searchWraper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    margin-top: 20px;
+    margin-left: 50%;
+    margin-bottom: -90px;
+    color: #5a5a5a;
+    font-family: Elsie Swash Caps;
+    font-size: 16px;
+    width: 540px;
+  }
+
+  .suspensionForm{
+    width: 600px;
+    height: 1px;
+  }
+
+  .suspensionForm > .navWraper {
+    width: 600px;
+    height: 1px;
+  }
+
+  .suspensionForm > .navWraper > .simple_form{
+    width: 600px;
+    height: 415px;
+    margin-top: 68%;
+    margin-left: 15%;
+
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    -o-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius:35px;
+    -o-border-radius:35px;
+    border-radius: 35px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.74);
+    color: #beb4aa;
+    font: normal 300 13px/23px "adelle", serif;
+    margin-bottom: 20px;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+    zoom: 1;
+  }
+
+  .suspensionForm > .navWraper > .simple_form > .control-group{
+    margin: 5px 0 0 25px;
+  }
+
+  .suspensionForm > .navWraper > .simple_form > .form-actions{
+    width: 0px; 
+    height: 0px; 
+    padding: 0px; 
+    margin-top: 20px; 
+    margin-bottom: 0px; 
+    margin-left:50px;"
+  }
+</style> 
+
+
+
+<script type="text/javascript">
+  var geocoder = new google.maps.Geocoder();
+  var loclat = 25.033493
+  var loclng = 121.564101
+  var mapOptions = {
+    zoom: 18,
+    center: new google.maps.LatLng(loclat,loclng),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+      style: google.maps.ZoomControlStyle.SMALL,
+      position: google.maps.ControlPosition.RIGHT_CENTER
+    },
+    // disableDefaultUI: false,
+    panControl: true,
+    panControlOptions:{
+      position: google.maps.ControlPosition.RIGHT_CENTER
+    },
+    scaleControl: true,
+    streetViewControl: true
+  }
+
+  $(document).ready(function(){
+
+    var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+
+    new google.maps.Marker({
+      position: new google.maps.LatLng(loclat,loclng),
+      map: map,
+      title: "Taiwan Taipei 101"
+    });
+
+    $(function() {
+      $("#searchbox").autocomplete({
+        source: function(request, response) {
+
+          if (geocoder == null){
+            geocoder = new google.maps.Geocoder();
+          }
+          geocoder.geocode( {'address': request.term }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+              var searchLoc = results[0].geometry.location;
+              var lat = results[0].geometry.location.lat();
+              var lng = results[0].geometry.location.lng();
+              var latlng = new google.maps.LatLng(lat, lng);
+              var bounds = results[0].geometry.bounds;
+
+              geocoder.geocode({'latLng': latlng}, function(results1, status1) {
+                if (status1 == google.maps.GeocoderStatus.OK) {
+                  if (results1[1]) {
+                    response($.map(results1, function(loc) {
+                      return {
+                        label  : loc.formatted_address,
+                        value  : loc.formatted_address,
+                        bounds   : loc.geometry.bounds
+                      }
+                    }));
+                  }
+                }
+              });
+            }
+          });
+        },
+        select: function(event,ui){
+          var pos = ui.item.position;
+          var lct = ui.item.locType;
+          var bounds = ui.item.bounds;
+
+          if (bounds){
+            map.fitBounds(bounds);
+          }
+        }
+      });
+    });
+
+    $('input[type=text]').on('keyup', function(e) {
+      if (e.which == 13) {
+        e.preventDefault();
+        search();
+      }
+    });
+
+  });
+
+
+
+  function search(){
+    var searchboxValue = $('#searchbox').val();
+    $('#claim_place_address').val(searchboxValue);
+    geocoder.geocode(
+        {'address': searchboxValue},
+        function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            var loc = results[0].geometry.location;
+//            alert("lat=" + loc.lat());
+//            alert("lng=" + loc.lng());
+
+            mapOptions = {
+              zoom: 18,
+              center: new google.maps.LatLng(loc.lat(),loc.lng()),
+              // disableDefaultUI: false,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+              mapTypeControl: true,
+              mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+              },
+              zoomControl: true,
+              zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.SMALL
+              },
+              // disableDefaultUI: false,
+              panControl: true,
+              scaleControl: true,
+              streetViewControl: true
+            }
+
+            var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+            new google.maps.Marker({
+              position: new google.maps.LatLng(loc.lat(),loc.lng()),
+              map: map
+            });
+
+          }
+          else {
+            alert("Not found: " + status);
+          }
+        }
+    );
+  }
+
+</script>
