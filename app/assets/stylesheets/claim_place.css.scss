@@ -13,8 +13,9 @@ body{
   background-repeat: repeat;
 }
 
-.claimPlace{
-	margin-top: 10px;
+.isotopTAG_MODEeStore{
+	background-color: gray;
+	font-size : 18px;
 }
 
 #new_claim_place label{
@@ -22,4 +23,54 @@ body{
 	padding: 1px;
 	font-size: 20px;
 	font-family: Elsie Swash Caps;
+}
+
+.shopContainer{
+	margin-top: 7%;
+}
+
+.claimPlacesContainer{
+	A:link {text-decoration:none; color: rgba(255,140,0,1)}
+	A:visited {color: rgba(255,140,0,1) }
+	A:active {color: rgba(255,140,0,1)}
+	A:hover {color: rgba(255,120,0,0.8)}
+	A{text-decoration: none}
+	margin-top: 7%;
+}
+
+#placeListContainer{
+	div{
+		display: block;
+		padding: 3px;
+	}
+	a{
+		display: block;
+		padding: 3px;
+	}
+	.placesName{
+		color: darkorange;
+		font-size: 24px;
+		padding-top: 20px;
+	}
+
+	.placesAddress{
+		font-weight: bolder;
+		color: rgb(183, 65, 0);
+	}
+
+	.placesEmail{
+		color: rgb(153, 51, 0);
+	}
+}
+
+
+
+.isotope-item{
+	text-align: center;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+	text-transform: uppercase;
+	width: 20%;
+	height: 200px;
+	background-color: rgba(66, 66, 66, 0.6);
+	box-shadow: 0 0 8px 4px rgba(250, 250, 250, 0.3);
 }
