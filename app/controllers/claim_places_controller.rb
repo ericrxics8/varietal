@@ -6,7 +6,7 @@ class ClaimPlacesController < ApplicationController
   respond_to :json, :html, :xml
 
   def index
-    @claimPlace = ClaimPlace.all
+    @claimPlace = ClaimPlace.all.reverse
     
     respond_to do |format|
      format.html #index.html.erb.erb
