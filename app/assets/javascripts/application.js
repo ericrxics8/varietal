@@ -20,7 +20,7 @@
 //= require jquery.bpopup.min.js
 //= require jquery.chart.min.js
 //= require jquery.isotope.min.js
-//= require ckeditor/ckeditor.js
+//= require ckeditor/init
 
 $(document).ready(function() {
   $('#signinbtn').bind('click', function(e) {

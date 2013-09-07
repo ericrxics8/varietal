@@ -29,7 +29,7 @@ gem 'simple_form'
 gem 'country_select', '~> 1.1.3'
 gem 'strong_parameters'
 gem "json", "~> 1.8.0"
-gem "ckeditor_rails", "~> 4.2"
+gem "ckeditor"
 
 group :development do
   gem 'guard-livereload'

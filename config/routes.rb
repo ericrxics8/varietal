@@ -1,4 +1,6 @@
 Varietal::Application.routes.draw do
+  # mount Ckeditor::Engine => '/ckeditor'
+  
   devise_for :users
   #devise_for :users, :controllers => {registrations: 'registrations'}
 
