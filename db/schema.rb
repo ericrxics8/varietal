@@ -30,38 +30,20 @@ ActiveRecord::Schema.define(:version => 20130905221420) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
   create_table "claim_places", :force => true do |t|
-    t.string   "address",                      :default => "",    :null => false
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
-    t.integer  "user_id",                      :default => 0,     :null => false
-    t.string   "storeName",                    :default => "",    :null => false
-    t.string   "ownerEmail",                   :default => ""
-    t.integer  "ownerPhone",    :limit => 255, :default => 0
-    t.text     "description",   :limit => 255, :default => ""
-    t.float    "latitude",                     :default => 0.0
-    t.float    "longitude",                    :default => 0.0
-    t.boolean  "owner",                        :default => false
+    t.integer  "user_id",       :default => 0,     :null => false
+    t.string   "address",       :default => "",    :null => false
+    t.string   "storeName",     :default => "",    :null => false
+    t.string   "ownerEmail",    :default => ""
+    t.string   "ownerPhone",    :default => ""
+    t.text     "description",   :default => ""
+    t.float    "latitude",      :default => 0.0
+    t.float    "longitude",     :default => 0.0
+    t.boolean  "owner",         :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "ownerWebsite"
     t.integer  "owner_user_id"
   end
-
-  create_table "models", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-  end
-
-  add_index "models", ["email"], :name => "index_models_on_email", :unique => true
-  add_index "models", ["reset_password_token"], :name => "index_models_on_reset_password_token", :unique => true
 
   create_table "products", :force => true do |t|
     t.string   "productName",    :default => "",   :null => false
@@ -99,11 +81,11 @@ ActiveRecord::Schema.define(:version => 20130905221420) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.boolean  "is_admin",               :default => false
     t.string   "username"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
-    t.boolean  "is_admin",               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -2,7 +2,7 @@ Varietal::Application.routes.draw do
   # mount Ckeditor::Engine => '/ckeditor'
   
   devise_for :users
-  #devise_for :users, :controllers => {registrations: 'registrations'}
+  # devise_for :users, :controllers => {registrations: 'registrations'}
 
   resources :claim_places do
     resources :products

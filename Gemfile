@@ -4,9 +4,12 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development, :test do
+  gem 'guard-livereload'
+  # gem 'sqlite3'
+end
 
-gem 'sqlite3'
-
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,19 +24,15 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'json'
 gem 'will_paginate', '~> 3.0'
 gem 'bootstrap-sass', '~> 2.3.1.0'
-gem 'devise'
+gem 'devise', '3.1.0'
 gem 'paperclip'
 gem 'simple_form'
 gem 'country_select', '~> 1.1.3'
 gem 'strong_parameters'
-gem "json", "~> 1.8.0"
-gem "ckeditor"
-
-group :development do
-  gem 'guard-livereload'
-end
+gem 'ckeditor'
 
 
 
