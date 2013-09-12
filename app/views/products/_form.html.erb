@@ -13,7 +13,8 @@
     <%= f.input :overall, :input_html => { :class => "input-xxlarge"} %>
     <%= f.input :taint, :input_html => { :class => "input-xxlarge"} %>
     <%= f.input :fault, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :description,as: :text, :input_html => { :class => "input-xxlarge"} %>
+    
+    <%= f.cktext_area :description, :input_html => { :class => "ckeditor input-xxlarge" } %>
 
     <div class="form-actions">
       <%= f.submit "Submit", :disable_with => 'Submiting...',

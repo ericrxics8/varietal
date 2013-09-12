@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905221420) do
+ActiveRecord::Schema.define(:version => 20130910184047) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(:version => 20130905221420) do
     t.float    "cleanCup",       :default => 10.0
     t.float    "sweetness",      :default => 10.0
     t.float    "overall"
-    t.integer  "taint",          :default => 0
-    t.integer  "fault",          :default => 0
+    t.float    "taint",          :default => 0.0
+    t.float    "fault",          :default => 0.0
     t.float    "totalScore"
     t.integer  "owner_user_id",  :default => 0,    :null => false
     t.text     "description"

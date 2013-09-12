@@ -27,9 +27,9 @@ class ProductsController < ApplicationController
 
   def update
     @product = current_user.products.find(params[:id])
-    @product.totalScore = @product.fragrance + @product.flavor + @product.aftertaste + @product.acidity + @product.body + @product.uniformity + @product.balance + @product.cleanCup + @product.sweetness + @product.overall - @product.taint - @product.fault
-    Rails.logger.debug("fragrance!: #{@product.totalScore}")
-
+    @product.totalScore = @product.fragrance + @product.flavor + @product.aftertaste + @product.acidity + @product.body + @product.balance + @product.uniformity  + @product.cleanCup + @product.sweetness + @product.overall - (@product.taint + @product.fault)
+    # Rails.logger.debug("totalScore !!= #{@product.totalScore}")
+    
     if @product.update_attributes(product_params)
       redirect_to claim_place_path(@claimPlace)
     else
