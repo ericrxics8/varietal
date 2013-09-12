@@ -26,7 +26,7 @@ end
 gem 'jquery-rails'
 gem 'json'
 gem 'will_paginate', '~> 3.0'
-gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'bootstrap-sass'
 gem 'devise', '3.1.0'
 gem 'paperclip'
 gem 'simple_form'
