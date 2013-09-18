@@ -34,6 +34,13 @@ gem 'country_select', '~> 1.1.3'
 gem 'strong_parameters'
 gem 'ckeditor'
 
+#WARNINGS:
+#        Injecting plugin 'rails_log_stdout'
+#        Injecting plugin 'rails3_serve_static_assets'
+#        Add 'rails_12factor' gem to your Gemfile to skip plugin injection
+gem 'rails_12factor'
+
+ruby '2.0.0'
 
 
 # To use ActiveModel has_secure_password
