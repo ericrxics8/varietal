@@ -16,7 +16,6 @@
 //
 // Loads all Bootstrap javascripts
 //= require bootstrap
-//= require jquery.fancybox.pack.js
 //= require jquery.bpopup.min.js
 //= require jquery.chart.min.js
 //= require jquery.isotope.min.js
