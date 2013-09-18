@@ -67,5 +67,6 @@ Varietal::Application.configure do
 
   #加入寄信時預設的網站網址
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
+  #ckeditor assetes precompile problem
+  config.assets.precompile += %w( ckeditor/* )
 end
