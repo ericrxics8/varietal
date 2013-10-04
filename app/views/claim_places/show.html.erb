@@ -22,12 +22,13 @@
     <div class="productList row-fluid">
       <% @products.each_with_index do |product,index| %>
         <div class="prodcut span12" style="margin-left: 0;">
-          <div class="productName span12">
-            <%= product.productName %>
-            <%= link_to("Edit", edit_claim_place_product_path(product.claim_place_id, product), :class=>"btn btn-mini")%>
-            <%= link_to("Delete", claim_place_product_path(product.claim_place_id, product), :class => "btn btn-mini",:method=>:delete,:confirm=>"Are you sure?")%>
-          </div>
-
+          <% if product.user_id == current_user.id %>
+            <div class="productName span12">
+              <%= product.productName %>
+              <%= link_to("Edit", edit_claim_place_product_path(product.claim_place_id, product), :class=>"btn btn-mini")%>
+              <%= link_to("Delete", claim_place_product_path(product.claim_place_id, product), :class => "btn btn-mini",:method=>:delete,:confirm=>"Are you sure?")%>
+            </div>
+          <% end %>  
           <div class="row-fluid">
             <div class="span5">
               <canvas id="coffeeRadarChart_<%= index %>" class="span5" width="450px" height="380px"></canvas>
