@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :login, :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
-
+  #attr_accessible :username, :login, :email, :password, :password_confirmation, :remember_me
+  
   # 與claim_places, products 做關連
   has_many :claim_places
   has_many :products
