@@ -36,6 +36,8 @@ group :development, :test do
   gem 'guard-livereload'
 end
 
+ruby '2.0.0'
+gem 'rails_12factor'
 gem 'will_paginate'
 gem 'bootstrap-sass'
 gem 'devise', '3.1.0'
