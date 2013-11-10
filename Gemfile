@@ -46,6 +46,8 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'country_select', '~> 1.1.3'
 gem 'ckeditor'
+
+#for heroku
 gem 'heroku'
 
 # Use ActiveModel has_secure_password
