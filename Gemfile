@@ -37,7 +37,7 @@ group :development, :test do
   gem 'guard-livereload'
 end
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 gem 'will_paginate'
 gem 'bootstrap-sass'
@@ -46,6 +46,7 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'country_select', '~> 1.1.3'
 gem 'ckeditor'
+gem 'heroku'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
