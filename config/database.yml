@@ -12,10 +12,8 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: d1pdunnnpi1ug2
+  database: varietal
   pool: 5
-  username: kjyltsghacsngj
-  password: lU00oLKMlL4yfHmwIJQ4B5F0D0
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
