@@ -57,7 +57,7 @@ module Varietal
     config.generators.stylesheets = false
 
     #for heroku settings
-    config.assets.initialize_on_precompile
+    # config.assets.initialize_on_precompile
 
   end
 end
