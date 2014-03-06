@@ -10,12 +10,6 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 2.2.1'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -35,13 +29,22 @@ end
 
 group :development, :test do
   gem 'guard-livereload'
+  gem "powder"
+end
+
+group :assets do 
+	# Use CoffeeScript for .js.coffee assets and views
+	gem 'coffee-rails', '~> 4.0.0'
+	# Use Uglifier as compressor for JavaScript assets
+	gem 'uglifier', '>= 2.2.1'
+	gem 'therubyracer'
 end
 
 gem 'rails_12factor', group: :production
 
 gem 'will_paginate'
 gem 'bootstrap-sass'
-gem 'devise', '3.1.0'
+gem 'devise', '3.2.2'
 gem 'paperclip'
 gem 'simple_form'
 gem 'country_select', '~> 1.1.3'

@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 //
 // Loads all Bootstrap javascripts
-//= require bootstrap
 //= require jquery.bpopup.min.js
 //= require jquery.chart.min.js
 //= require jquery.isotope.min.js

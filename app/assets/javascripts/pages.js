@@ -10,7 +10,7 @@ $(document).ready(function() {
   $('.dropdown-toggle').dropdown();
 
   $('.carousel').carousel({
-    interval: 5000
+    interval: 30000
   });
 
 });
