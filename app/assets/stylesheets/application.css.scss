@@ -27,8 +27,8 @@
 .navbar-header{
   .navbar-brand{
     font-family: Elsie Swash Caps;
-    padding: 13px 13px 15px;
-    font-size: 25px;
+    padding: 21px 21px;
+    font-size: 36px;
     font-weight: bold;
     text-shadow: 0 -1px 0 rgba(0,0,0,.5);
     color: darkorange;
@@ -37,22 +37,21 @@
 
 .navbar-nav{
   .navBtn{
-    margin-top:3px;
+    margin-top:1%;
     font-size: 20px;
   }
 
-  #signinbtn{
+  .signinbtn{
+    clear: color;
+    font-size: 20px;
+  }
+
+  #claimplace{
     font-family: Elsie Swash Caps;
     font-size: 16px;
   }
 
-  #signupbtn{
-    font-family: Elsie Swash Caps;
-    font-size: 16px;
-  }
-
-  #claimlace{
-    font-family: Elsie Swash Caps;
-    font-size: 16px;
+  .userLoginBlock{
+    margin-left: 30%;
   }
 }

@@ -4,17 +4,17 @@
 
   <%= devise_error_messages! %>
 
-  <p class="signupTip" style="font-size: 18px;"><%= f.label :username %><br />
-  <%= f.text_field :username, :autofocus => true %></p>
+  <p class="signupTip" style="font-size: 18px;"><%= f.label :username %></p>
+  <p><%= f.text_field :username, :autofocus => true %></p>
 
-  <p class="signupTip" style="font-size: 18px;"><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+  <p class="signupTip" style="font-size: 18px;"><%= f.label :email %></p>
+  <p><%= f.text_field :email %></p>
 
-  <div class="signupTip" style="font-size: 18px;"><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="signupTip" style="font-size: 18px;"><%= f.label :password %></div>
+  <div><%= f.password_field :password %></div>
 
-  <div class="signupTip" style="font-size: 18px;"><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="signupTip" style="font-size: 18px;"><%= f.label :password_confirmation %></div>
+  <div><%= f.password_field :password_confirmation %></div>
 
   <input class="btn btn-success" style="font-size:20px; font-family:'Elsie Swash Caps';" name="commit" type="submit" value="Sign up">
 <% end %>

@@ -22,28 +22,28 @@
 //= require ckeditor/init
 
 $(document).ready(function() {
-  $('#signinbtn').bind('click', function(e) {
+  $('.signinbtn').bind('click', function(e) {
     e.preventDefault();
-    document.getElementById("signupbtn").disabled = true;
-    $('#hiddenSingup').hide();
-    $('#hiddenSingin').bPopup({
+    document.getElementsByClassName("signupbtn").disabled = true;
+    $('.hiddenSingup').hide();
+    $('.hiddenSingin').bPopup({
       zIndex:2,
       modalClose:true,
       onClose: function(){
-        document.getElementById("signupbtn").disabled = false;
+        document.getElementsByClassName("signupbtn").disabled = false;
       }
     });
   });
 
-  $('#signupbtn').bind('click', function(e) {
+  $('.signupbtn').bind('click', function(e) {
     e.preventDefault();
-    document.getElementById("signinbtn").disabled = true;
-    $('#hiddenSingin').hide();
-    $('#hiddenSingup').bPopup({
+    document.getElementsByClassName("signinbtn").disabled = true;
+    $('.hiddenSingin').hide();
+    $('.hiddenSingup').bPopup({
       zIndex:2,
       modalClose:true,
       onClose: function(){
-        document.getElementById("signinbtn").disabled = false;
+        document.getElementsByClassName("signinbtn").disabled = false;
       }
     });
   });

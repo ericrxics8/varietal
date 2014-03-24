@@ -50,7 +50,7 @@
 
         <% if user_signed_in? %>
           <li>
-            <div class="text-warning text-right offset2">
+            <div class="text-warning text-right">
               <div id="navbarUsername">
                 <%= current_user.username %>
                 <%= link_to("Sign out", destroy_user_session_path, :method => :delete )%>
@@ -58,16 +58,21 @@
             </div>
           </li>
         <% else %>
-          <li class="btn-group offset2">
-            <button class="btn btn-success btn-mini" id="signinbtn" role="button">
-              <!--onclick="self.location.href='<%= new_user_session_path %>'"-->
-              Sign in
-            </button>
+          
 
-            <button class="btn btn-success btn-mini" id="signupbtn" role="button">
-              <!--onclick="self.location.href='<%= new_user_registration_path %>'"-->
-              Sign up
-            </button>
+          <!-- <li class="dropdown navBtn">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign In
+              <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><a href="#" class="signinbtn">Sign In</a></li>
+              <li><a href="#" class="signupbtn">Sign Up</a></li>
+            </ul>
+          </li> -->
+
+          <li>
+            <a href="#" class="signinbtn">Sign In</a>
           </li>
         <% end %>
       </ul>
@@ -77,10 +82,10 @@
 </nav>
 
 
-<div id="hiddenSingin" style="display: none">
+<div class="hiddenSingin" style="display: none">
   <%= render :partial => "devise/shared/sessions_new" %>
 </div>
 
-<div id="hiddenSingup" style="display: none">
+<div class="hiddenSingup" style="display: none">
   <%= render :partial => "devise/shared/registrations_new" %>
 </div>
