@@ -19,45 +19,45 @@
       </button>
   </div>
 
-  <div class="navbar offset2 suspensionForm">
-    <div class="navWraper">
-      
-      <%= simple_form_for @claimPlace do |f| %>
-        <%= f.input :storeName,
-                    label:'Store Name',
-                    :input_html => { :class => "input-medium" } %>
+  <!-- <div class="navbar offset2 suspensionForm"> -->
+  <div class="navWraper suspensionWraper">
+    
+    <%= simple_form_for @claimPlace,:html => {:class => "suspensionForm"}  do |f| %>
+      <%= f.input :storeName,
+                  label:'Store Name',
+                  :input_html => { :class => "suspensionIputMideum" } %>
 
-        <%= f.input :address,
-                    label: 'Address',
-                    :input_html => { :class => "input-xxlarge"} %>
+      <%= f.input :address,
+                  label: 'Address',
+                  :input_html => { :class => "suspensionInputLarge"} %>
 
-        <%= f.input :ownerPhone,
-                    label:'Phone',
-                    :input_html => { :class => "input-medium" } %>
+      <%= f.input :ownerPhone,
+                  label:'Phone',
+                  :input_html => { :class => "suspensionIputMideum" } %>
 
-        <%= f.input :ownerEmail,
-                    label:'Email',
-                    :input_html => { :class => "input-xlarge" } %>
+      <%= f.input :ownerEmail,
+                  label:'Email',
+                  :input_html => { :class => "suspensionIputMideum" } %>
 
-        <%= f.input :ownerWebsite,
-                    label:'Website',
-                    :input_html => { :class => "input-xlarge" } %>
+      <%= f.input :ownerWebsite,
+                  label:'Website',
+                  :input_html => { :class => "suspensionIputMideum" } %>
 
-        <!-- %= f.input :owner,
-                    label:'Are you Store Owner ?',
-                    as: :radio_buttons
-        %>
+      <!-- %= f.input :owner,
+                  label:'Are you Store Owner ?',
+                  as: :radio_buttons
+      %>
 
 
-        %= f.input :description, as: :text, :input_html => { :class => "input-xxlarge"} %> -->
+      %= f.input :description, as: :text, :input_html => { :class => "input-xxlarge"} %> -->
 
-        <div class="form-actions">
-          <%= f.submit "Claim Your Store !", :disable_with => 'Submiting...',
-                       :class => "btn btn-primary"%>
-        </div>
-      <% end %>
-    </div>
-  </div> 
+      <div class="form-actions">
+        <%= f.submit "Claim Your Store !", :disable_with => 'Submiting...',
+                     :class => "btn btn-primary suspensionButton"%>
+      </div>
+    <% end %>
+  </div>
+  <!-- </div>  -->
   
 
   <!-- <div class="span4 offset12">
@@ -65,14 +65,35 @@
   </div> -->  
 
 <style type="text/css">
-  html { height: 99.9%}
+  html { height: 100%}
   body { height: 100%; margin: 0px; padding: 0px }
   #map-canvas { height: 100% }
 
   .searchWraper{
     position: absolute;
     top: 0;
-    left: 0;
+    left: 12%;
+    right: 0;
+    z-index: 10;
+    margin-top: 20px;
+    margin-left: 50%;
+    margin-bottom: -90px;
+    color: #5a5a5a;
+    font-family: Elsie Swash Caps;
+    font-size: 18px;
+    width: 540px;
+  }
+
+  #search{
+    font-size: 18px;
+    font-family: Elsie Swash Caps;
+  }
+
+  .suspensionWraper{
+    position: absolute;
+    z-index: 10;
+    top: 12%;
+    left: -51%;
     right: 0;
     z-index: 10;
     margin-top: 20px;
@@ -85,16 +106,6 @@
   }
 
   .suspensionForm{
-    width: 600px;
-    height: 1px;
-  }
-
-  .suspensionForm > .navWraper {
-    width: 600px;
-    height: 1px;
-  }
-
-  .suspensionForm > .navWraper > .simple_form{
     width: 600px;
     height: 415px;
     margin-top: 58%;
@@ -119,11 +130,11 @@
     zoom: 1;
   }
 
-  .suspensionForm > .navWraper > .simple_form > .control-group{
+  .suspensionForm > .control-group{
     margin: 5px 0 0 25px;
   }
 
-  .suspensionForm > .navWraper > .simple_form > .form-actions{
+  .suspensionForm > .form-actions{
     width: 0px; 
     height: 0px; 
     padding: 0px; 
@@ -131,6 +142,21 @@
     margin-bottom: 0px; 
     margin-left:50px;"
   }
+
+  .suspensionInputLarge{
+    width: 550px;
+  }
+  .suspensionIputMideum{
+    width: 275px;
+  }
+
+  .suspensionButton{
+    margin-top: 40px;
+    margin-left: 345px;
+    font-family: Helvetica Neue;
+    font-size: 18px;
+  }
+/*"Helvetica Neue", Helvetica, Arial, sans-serif;*/
 
 </style> 
 

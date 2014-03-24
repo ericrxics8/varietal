@@ -64,7 +64,6 @@ class ClaimPlacesController < ApplicationController
   def destroy
     #@claimPlace = ClaimPlace.find(params[:id])
     @claimPlace = current_user.claim_places.find(params[:id])
-
     @claimPlace.destroy
 
     redirect_to claim_place_path
