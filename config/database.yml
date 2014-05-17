@@ -33,15 +33,24 @@ test:
   password: lU00oLKMlL4yfHmwIJQ4B5F0D0
   host: localhost
 
+# production:
+#   # adapter: sqlite3
+#   # database: db/production.sqlite3
+#   # pool: 5
+#   # timeout: 5000
+#   pool: 5
+#   adapter: postgresql
+#   encoding: unicode
+#   database: d1pdunnnpi1ug2
+#   username: kjyltsghacsngj
+#   password: lU00oLKMlL4yfHmwIJQ4B5F0D0
+#   host: localhost
+
 production:
-  # adapter: sqlite3
-  # database: db/production.sqlite3
-  # pool: 5
-  # timeout: 5000
-  pool: 5
   adapter: postgresql
   encoding: unicode
-  database: d1pdunnnpi1ug2
-  username: kjyltsghacsngj
-  password: lU00oLKMlL4yfHmwIJQ4B5F0D0
-  host: localhost
+  database: varietal_production
+  pool: 5
+  username: varietal
+  password:
+
