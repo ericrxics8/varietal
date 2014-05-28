@@ -38,6 +38,7 @@ gem 'bootstrap-sass'
 group :development, :test do
   gem 'guard-livereload'
   gem "powder"
+  gem 'rails_layout'
 end
 
 gem 'rails_12factor', group: :production
