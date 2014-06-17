@@ -18,7 +18,7 @@ class ClaimPlacesController < ApplicationController
   def show
     @claimPlace = ClaimPlace.find(params[:id])
     
-    respond_with(@products = @claimPlace.products)
+    respond_with(@products = @claimPlace.products.reverse)
   end
 
   def new

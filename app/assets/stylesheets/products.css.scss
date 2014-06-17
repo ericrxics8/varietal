@@ -18,9 +18,12 @@
     font-family: NovaMono;
     font-weight: bold;
     line-height: 27px;
-
+    
+    tr{
+      width: 20px;
+    }
     td{
-      width: 250px;
+      width: 10px;
     }
   }
 
@@ -28,6 +31,7 @@
     font-size: 20px;
     font-family: Merienda One;
     line-height: 24px;
+    min-height: 299px;
   }
 
   address{
@@ -38,7 +42,7 @@
     text-align: center;
   }
 
-  .sotreDescription{
+  .storeDescription{
     font-size: 20px;
     font-family: Merienda One;
     color: rgba(128,64,0,0.8);
@@ -54,3 +58,51 @@
   .product{
     padding-bottom: 20px;
   }
+
+  .productList .row-fluid .span6 {
+    width: 40%; 
+    float: left;
+    margin-right: 8.5%;
+    display: inline;
+    text-align: center;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .product{
+    margin-top: 7%;
+    margin-bottom: 7%; 
+  }
+
+  .adminActions{
+    text-align: right;
+  }
+
+  //product edit
+  .scaaItem .scaaScores{
+    width: 15%;
+    float: left;
+    margin-left: 4%;
+    margin-right: 4%;
+    display: inline;
+    text-align: left;
+
+    .scaaScore{
+      margin-top: 1%;
+      text-align: center;
+    }
+  }
+
+  .scaaItem .formActions{
+    width: 65%;
+    float: left;
+    display: inline;
+    text-align: right;
+
+    .btn{
+      margin-top: 1%;
+    }
+  }
+

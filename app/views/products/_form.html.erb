@@ -1,24 +1,36 @@
 <%= simple_form_for [@claimPlace,@product] do |f| %>
+  <div class="scaaItem">
+    <div class="scaaScores">
+        <%= f.input :productName,hint:'Every degree is 0.25',:input_html => { :class => "scaaScore", :placeholder=>"Product Name"}, label: false %>
+        <%= f.input :fragrance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fragrance/Aroma"}, label: false %>
+        <%= f.input :flavor, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Flavor"}, label: false %>
+        <%= f.input :aftertaste, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Aftertaste"}, label: false %>
+        <%= f.input :acidity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Acidity"}, label: false %>
+        <%= f.input :body, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Body"}, label: false %>
 
-    <%= f.input :productName,hint:'Every degree is 0.25' , :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :fragrance, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :flavor, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :aftertaste, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :acidity, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :body, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :balance, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :uniformity, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :cleanCup, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :sweetness, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :overall, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :taint, :input_html => { :class => "input-xxlarge"} %>
-    <%= f.input :fault, :input_html => { :class => "input-xxlarge"} %>
-    
-    <%= f.cktext_area :description, :input_html => { :class => "ckeditor input-xxlarge" } %>
 
-    <div class="form-actions">
-      <%= f.submit "Submit", :disable_with => 'Submiting...',
-                   :class => "btn btn-primary"%>
+        <%= f.input :balance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Balance"}, label: false %>
+        <%= f.input :uniformity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Uniformity"}, label: false %>
+        <%= f.input :cleanCup, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"CleanCup"}, label: false %>
+        <%= f.input :sweetness, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Sweetness"}, label: false %>
+        <%= f.input :overall, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Overall"}, label: false %>
+        <%= f.input :taint, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Taint"}, label: false %>
+        <%= f.input :fault, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fault"}, label: false %>
+
+    </div>  
+
+    <div class="formActions">
+      <%= f.cktext_area :description, :input_html => { :class => "ckeditor" } %>
+      <%= f.submit "Submit", :disable_with => 'Submiting...',:class => "btn btn-primary"%>
     </div>
 
+  </div>
+
 <% end %>
+
+<script type="text/javascript">
+    $('input.scaaScore').floatlabel({
+        transitionDuration: 0.3,
+        transitionEasing: 'ease-in-out'
+    });
+</script>

@@ -1,124 +1,123 @@
 <div class="container shopContainer">
-    <div class="storeName"> <%= @claimPlace.storeName %> </div>
+  <div class="storeName"> <%= @claimPlace.storeName %> </div>
 
-    <address class="span11">
-      <div class="claimPlace">
-      <%= link_to("Edit Your Store", edit_claim_place_path(@claimPlace) ,
-                  :class => "btn btn-mini")%>
+  <address class="span12">
+    <div class="claimPlace">
+    <%= link_to("Edit Your Store", edit_claim_place_path(@claimPlace) ,
+                :class => "btn btn-mini")%>
 
-      <%= link_to("Post New Product", new_claim_place_product_path(@claimPlace) ,
-                  :class => "btn btn-mini btn-primary")%>
-      </div>
-
-      <strong><%= @claimPlace.address %></strong><br>
-      <abbr title="Phone">Phone:</abbr> <%= @claimPlace.ownerPhone %><br>
-      <a href="mailto:#"><%= @claimPlace.ownerEmail %></a>
-    </address>
-
-    <p class="sotreDescription span12 ckeditor"> <%= @claimPlace.description %> </p>
-
-    <div class="productsLength" style="display: none"><%= @products.length %></div>
-
-    <div class="productList row-fluid">
-      <% @products.each_with_index do |product,index| %>
-        <div class="prodcut span12" style="margin-left: 0;">
-          <% if product.user_id == current_user.id %>
-            <div class="productName span12">
-              <%= product.productName %>
-              <%= link_to("Edit", edit_claim_place_product_path(product.claim_place_id, product), :class=>"btn btn-mini")%>
-              <%= link_to("Delete", claim_place_product_path(product.claim_place_id, product), :class => "btn btn-mini",:method=>:delete,:confirm=>"Are you sure?")%>
-            </div>
-          <% end %>  
-          <div class="row-fluid">
-            <div class="span5">
-              <canvas id="coffeeRadarChart_<%= index %>" class="span5" width="450px" height="380px"></canvas>
-
-              <div class="description span12">
-                Description : <%= product.description %>
-              </div>
-            </div>
-
-            <div class="product span6 offset1">
-              <ol class="radarValue" style="display: none">
-                <li><%= product.fragrance %></li>
-                <li><%= product.flavor %></li>
-                <li><%= product.aftertaste %></li>
-                <li><%= product.acidity %></li>
-                <li><%= product.body %></li>
-                <li><%= product.balance %></li>
-                <li><%= product.overall %></li>
-              </ol>
-
-              <table id="scaaItem" class="span5 table table-hover">
-                  <tr>
-                    <td>Fragrance</td>
-                    <td><%= product.fragrance %></td>
-                  </tr>
-                  <tr>
-                    <td>Flavor</td>
-                    <td><%= product.flavor %></td>
-                  </tr>
-                  <tr>
-                    <td>Aftertaste</td>
-                    <td><%= product.aftertaste %></td>
-                  </tr>
-                  <tr>
-                    <td>Acidity</td>
-                    <td><%= product.acidity %></td>
-                  </tr>
-                  <tr>
-                    <td>Body</td>
-                    <td><%= product.body %></td>
-                  </tr>
-                  <tr>
-                    <td>Uniformity</td>
-                    <td><%= product.uniformity %></td>
-                  </tr>
-                  <tr>
-                    <td>Balance</td>
-                    <td><%= product.balance %></td>
-                  </tr>
-                  <tr>
-                    <td>CleanCup</td>
-                    <td><%= product.cleanCup %></td>
-                  </tr>
-                  <tr>
-                    <td>Sweetness</td>
-                    <td><%= product.sweetness %></td>
-                  </tr>
-                  <tr>
-                    <td>Overall</td>
-                    <td><%= product.overall %></td>
-                  </tr>
-                  <tr>
-                    <td>Taint</td>
-                    <td><%= product.taint %></td>
-                  </tr>
-                  <tr>
-                    <td>Fault</td>
-                    <td><%= product.fault %></td>
-                  </tr>
-                  <tr class="success">
-                    <td>TotalScore</td>
-                    <td><%= product.totalScore %></td>
-                  </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-
-      <% end %>
+    <%= link_to("Post New Product", new_claim_place_product_path(@claimPlace) ,
+                :class => "btn btn-mini btn-primary")%>
     </div>
 
+    <strong><%= @claimPlace.address %></strong><br>
+    <abbr title="Phone">Phone:</abbr> <%= @claimPlace.ownerPhone %><br>
+    <a href="mailto:#"><%= @claimPlace.ownerEmail %></a>
+  </address>
+
+  <div class="storeDescription span12 ckeditor">  
+    <%= simple_format(@claimPlace.description) %>
+  </div>
+
+  <div class="productsLength" style="display: none"><%= @products.length %></div>
+
+  <div class="productList">
+
+    <% @products.each_with_index do |product,index| %>
+
+      <div class="row-fluid product">
+        <div class="span12 productName"><%= product.productName %></div>
+
+        <div class="span6">
+          <ol class="radarValue" style="display: none">
+            <li><%= product.fragrance %></li>
+            <li><%= product.flavor %></li>
+            <li><%= product.aftertaste %></li>
+            <li><%= product.acidity %></li>
+            <li><%= product.body %></li>
+            <li><%= product.balance %></li>
+            <li><%= product.overall %></li>
+          </ol>
+
+          <table id="scaaItem" class=" table table-hover">
+            <tr>
+              <td>Fragrance</td>
+              <td><%= product.fragrance %></td>
+            </tr>
+            <tr>
+              <td>Flavor</td>
+              <td><%= product.flavor %></td>
+            </tr>
+            <tr>
+              <td>Aftertaste</td>
+              <td><%= product.aftertaste %></td>
+            </tr>
+            <tr>
+              <td>Acidity</td>
+              <td><%= product.acidity %></td>
+            </tr>
+            <tr>
+              <td>Body</td>
+              <td><%= product.body %></td>
+            </tr>
+            <tr>
+              <td>Uniformity</td>
+              <td><%= product.uniformity %></td>
+            </tr>
+            <tr>
+              <td>Balance</td>
+              <td><%= product.balance %></td>
+            </tr>
+            <tr>
+              <td>CleanCup</td>
+              <td><%= product.cleanCup %></td>
+            </tr>
+            <tr>
+              <td>Sweetness</td>
+              <td><%= product.sweetness %></td>
+            </tr>
+            <tr>
+              <td>Overall</td>
+              <td><%= product.overall %></td>
+            </tr>
+            <tr>
+              <td>Taint</td>
+              <td><%= product.taint %></td>
+            </tr>
+            <tr>
+              <td>Fault</td>
+              <td><%= product.fault %></td>
+            </tr>
+            <tr class="success">
+              <td>TotalScore</td>
+              <td><%= product.totalScore %></td>
+            </tr>
+          </table>
+        </div>        
+        
+        <div class="span6">
+          <div class="adminActions">
+            <% if product.user_id == current_user.id %>
+              <%= link_to("Edit", edit_claim_place_product_path(product.claim_place_id, product), :class=>"btn btn-mini")%>
+              <%= link_to("Delete", claim_place_product_path(product.claim_place_id, product), :class => "btn btn-mini",:method=>:delete,:confirm=>"Are you sure?")%>
+            <% end %>
+          </div>
+
+          <canvas id="coffeeRadarChart_<%= index %>" width="450px" height="380px"></canvas>
+
+          <div class="description"> Description :
+            <%= simple_format(product.description) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <style type="text/css">
-
+  
 </style>
 
 <script type="text/javascript">
   
-
-
 </script>

@@ -226,7 +226,7 @@ DEPENDENCIES
   rails (= 4.0.2)
   rails_12factor
   rails_layout
-  sass-rails (~> 4.0.0)
+  sass-rails (~> 4.0.2)
   sdoc
   settingslogic
   simple_form (~> 3.0.1)
