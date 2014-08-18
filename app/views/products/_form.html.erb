@@ -1,19 +1,24 @@
 <%= simple_form_for [@claimPlace,@product] do |f| %>
   <div class="scaaItem">
     <div class="scaaScores">
-        <%= f.input :productName,hint:'Every degree is 0.25',:input_html => { :class => "scaaScore", :placeholder=>"Product Name"}, label: false %>
+        <%= f.input :productName,:input_html => { :class => "scaaScore", :placeholder=>"Product Name"}, label: false %>
+        <div class="tip">Degree is 0.25</div>
         <%= f.input :fragrance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fragrance/Aroma"}, label: false %>
         <%= f.input :flavor, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Flavor"}, label: false %>
         <%= f.input :aftertaste, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Aftertaste"}, label: false %>
         <%= f.input :acidity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Acidity"}, label: false %>
         <%= f.input :body, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Body"}, label: false %>
 
-
+        <div class="tip">Degree is 2</div>
         <%= f.input :balance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Balance"}, label: false %>
         <%= f.input :uniformity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Uniformity"}, label: false %>
         <%= f.input :cleanCup, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"CleanCup"}, label: false %>
         <%= f.input :sweetness, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Sweetness"}, label: false %>
+
+        <div class="tip">Degree is 0.25</div>
         <%= f.input :overall, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Overall"}, label: false %>
+
+        <div class="tip">Degree is minus</div>
         <%= f.input :taint, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Taint"}, label: false %>
         <%= f.input :fault, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fault"}, label: false %>
 
@@ -31,6 +36,8 @@
 <script type="text/javascript">
     $('input.scaaScore').floatlabel({
         transitionDuration: 0.3,
-        transitionEasing: 'ease-in-out'
+        transitionEasing: 'ease-in-out',
+        labelStartTop: '33px',
+        top: '4px'
     });
 </script>

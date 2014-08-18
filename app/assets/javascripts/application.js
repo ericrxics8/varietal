@@ -16,8 +16,6 @@
 //= require_tree .
 //
 // Loads all Bootstrap javascripts
-//= require jquery.easing.1.3.js
-//= require jquery.easing.compatibility.js
 //= require jquery.bpopup.min.js
 //= require jquery.chart.min.js
 //= require jquery.isotope.min.js
