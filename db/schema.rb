@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20130910184047) do
     t.string   "type",              limit: 30
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20130910184047) do
     t.float    "latitude",      default: 0.0
     t.float    "longitude",     default: 0.0
     t.boolean  "owner",         default: false
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "ownerWebsite"
     t.integer  "owner_user_id"
   end
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 20130910184047) do
     t.float    "totalScore"
     t.integer  "owner_user_id",  default: 0,    null: false
     t.text     "description"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "claim_place_id"
     t.integer  "user_id"
   end
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20130910184047) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "is_admin",               default: false
     t.string   "username"
     t.float    "latitude"
