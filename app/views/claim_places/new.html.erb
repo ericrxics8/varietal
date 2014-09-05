@@ -7,20 +7,23 @@
 
 <div id="map-canvas" style=""></div>
 
-  <div class="navWraper searchWraper"
-     style="margin-top: 85px; font-size: 22px; font-weight:bold;">  
+  <div class="navWraper searchWraper">  
       <input type="text" value="" id="searchbox"
-             style=" width:444px; height:30px; font-size:20px; background-color: rgba(10,225,255,.6)">
+             style=" width:444px; height:30px; font-size:18px; background-color: rgba(0,0,0,0.68)">
 
-      <button id="search" class="btn btn-info btn" role="button"
-              style="margin-top: -7px"
-              onclick="search();">
+      <button id="search" class="btn btn-info" role="button"
+              onclick="searchPlace();">
         Search
+      </button>
+
+      <button id="create" class="btn btn-info" role="button"
+              onclick="createPlace();">
+        Create
       </button>
   </div>
 
   <!-- <div class="navbar offset2 suspensionForm"> -->
-  <div class="navWraper suspensionWraper">
+  <div class="navWraper suspensionWraper createPlaceWraper" style="display:none">
     
     <%= simple_form_for @claimPlace,:html => {:class => "suspensionForm"}  do |f| %>
       <%= f.input :storeName,
@@ -75,13 +78,15 @@
     left: 12%;
     right: 0;
     z-index: 10;
-    margin-top: 20px;
-    margin-left: 50%;
-    margin-bottom: -90px;
-    color: #5a5a5a;
+    margin-top: 7%;
+    margin-left: 48%;
+    margin-right: 20%;
+
+    color: darkorange;
     font-family: Elsie Swash Caps;
-    font-size: 18px;
-    width: 540px;
+    width: 540px; 
+    font-size: 22px; 
+    font-weight:bold;
   }
 
   #search{
@@ -89,27 +94,24 @@
     font-family: Elsie Swash Caps;
   }
 
-  .suspensionWraper{
-    position: absolute;
-    z-index: 10;
-    top: 12%;
-    left: -51%;
-    right: 0;
-    z-index: 10;
-    margin-top: 20px;
-    margin-left: 50%;
-    margin-bottom: -90px;
-    color: #5a5a5a;
+  #create{
+    margin-top: 1%;
+    margin-left: 68%;
+    font-size: 18px;
     font-family: Elsie Swash Caps;
-    font-size: 16px;
-    width: 540px;
+  }
+
+  .suspensionWraper{
+    margin-top: -20%;
+    margin-left: 48%;
   }
 
   .suspensionForm{
-    width: 600px;
-    height: 415px;
-    margin-top: 58%;
-    margin-left: 5%;
+    width: 480px;
+    height: 400px;
+    margin-top: 28%;
+    margin-left: 1%;
+    padding-top: 3%;
 
     -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
@@ -121,7 +123,6 @@
     -o-border-radius:35px;
     border-radius: 35px;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
-    background-color: black;
     background-color: rgba(0, 0, 0, 0.68);
     color: #beb4aa;
     font: normal 300 13px/23px "adelle", serif;
@@ -144,15 +145,14 @@
   }
 
   .suspensionInputLarge{
-    width: 550px;
+    width: 444px;
   }
   .suspensionIputMideum{
     width: 275px;
   }
 
   .suspensionButton{
-    margin-top: 40px;
-    margin-left: 345px;
+    margin-left: 222px;
     font-family: Helvetica Neue;
     font-size: 18px;
   }
@@ -199,6 +199,7 @@
     });
 
     $(function() {
+      //Google Map 自動完成提示
       $("#searchbox").autocomplete({
         source: function(request, response) {
 
@@ -242,6 +243,7 @@
       });
     });
 
+    
     $('input[type=text]').on('keyup', function(e) {
       if (e.which == 13) {
         e.preventDefault();
@@ -253,7 +255,7 @@
 
 
 
-  function search(){
+  function searchPlace(){
     var searchboxValue = $('#searchbox').val();
     $('#claim_place_address').val(searchboxValue);
     geocoder.geocode(
@@ -296,6 +298,18 @@
           }
         }
     );
+  }
+
+  function createPlace(){
+
+    $('.createPlaceWraper').bPopup({
+      zIndex:11,
+      modalClose:true,
+      onClose: function(){
+        document.getElementsByClassName("createPlaceWraper").disabled = false;
+      }
+    });
+
   }
 
 </script>
