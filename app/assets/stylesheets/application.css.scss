@@ -24,6 +24,12 @@
   width: auto; display:inline;
 }
 
+.navbar{
+  margin-bottom:-0.5%;
+}
+
+//end
+
 .navbar-header{
   .navbar-brand{
     font-family: Elsie Swash Caps;
@@ -37,7 +43,6 @@
 
 .navbar-nav{
   .navBtn{
-    margin-top:1%;
     font-size: 20px;
   }
 

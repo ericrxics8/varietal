@@ -9,8 +9,8 @@
 $(document).ready(function() {
   $('.dropdown-toggle').dropdown();
 
-  $('.carousel').carousel({
-    interval: 30000
-  });
+  // $('.carousel').carousel({
+  //   interval: 30000
+  // });
 
 });

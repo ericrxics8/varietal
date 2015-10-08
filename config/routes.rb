@@ -6,13 +6,16 @@ Varietal::Application.routes.draw do
   resources :claim_places do
     resources :products
   end
+
+  resources :coffeeintro
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.erb.
   # root :to => 'welcome#index'
-  root :to => 'pages#index'
+  # root :to => 'pages#index'
+  root :to => 'claim_places#index'
   
   # See how all your routes lay out with "rake routes"
 

@@ -1,32 +1,31 @@
 <%= simple_form_for [@claimPlace,@product] do |f| %>
-  <div class="scaaItem">
-    <div class="scaaScores">
-        <%= f.input :productName,:input_html => { :class => "scaaScore", :placeholder=>"Product Name"}, label: false %>
-        <div class="tip">Degree is 0.25</div>
-        <%= f.input :fragrance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fragrance/Aroma"}, label: false %>
-        <%= f.input :flavor, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Flavor"}, label: false %>
-        <%= f.input :aftertaste, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Aftertaste"}, label: false %>
-        <%= f.input :acidity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Acidity"}, label: false %>
-        <%= f.input :body, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Body"}, label: false %>
+  <div class="row">
+    <div class="scaaItem col-xs-12 col-sm-3 col-md-2 col-lg-2">
+      <div class="scaaScores">
+          <%= f.input :productName,:input_html => { :class => "scaaScore", :placeholder=>"Product Name"}, label: false %>
+          <%= f.input :fragrance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fragrance/Aroma"}, label: false %>
+          <%= f.input :flavor, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Flavor"}, label: false %>
+          <%= f.input :aftertaste, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Aftertaste"}, label: false %>
+          <%= f.input :acidity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Acidity"}, label: false %>
+          <%= f.input :body, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Body"}, label: false %>
+          <%= f.input :balance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Balance"}, label: false %>
 
-        <div class="tip">Degree is 2</div>
-        <%= f.input :balance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Balance"}, label: false %>
-        <%= f.input :uniformity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Uniformity"}, label: false %>
-        <%= f.input :cleanCup, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"CleanCup"}, label: false %>
-        <%= f.input :sweetness, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Sweetness"}, label: false %>
+          <%= f.input :uniformity, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Uniformity"}, label: false %>
+          <%= f.input :cleanCup, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"CleanCup"}, label: false %>
+          <%= f.input :sweetness, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Sweetness"}, label: false %>
 
-        <div class="tip">Degree is 0.25</div>
-        <%= f.input :overall, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Overall"}, label: false %>
+          <%= f.input :overall, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Overall"}, label: false %>
 
-        <div class="tip">Degree is minus</div>
-        <%= f.input :taint, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Taint"}, label: false %>
-        <%= f.input :fault, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fault"}, label: false %>
+          <%= f.input :taint, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Taint"}, label: false %>
+          <%= f.input :fault, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fault"}, label: false %>
+      </div>
+    </div>
 
-    </div>  
+    <img class="coffeeFalvorWheel img-responsive col-xs-12 col-sm-9 col-md-10 col-lg-10" src="/assets/coffee_tasters_flavor_wheel.jpg" alt="coffeeFlaverWheel">
 
-    <div class="formActions">
+    <div class="coffeeFlaverEditor formActions col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <%= f.cktext_area :description, :input_html => { :class => "ckeditor" } %>
-      <%= f.submit "Submit", :disable_with => 'Submiting...',:class => "btn btn-primary"%>
+      <%= f.submit "Submit", :disable_with => 'Submiting...',:class => "btn btn-primary"%>    
     </div>
 
   </div>

@@ -11,7 +11,7 @@
 
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: varietal_development
   pool: 5
   host: localhost
@@ -36,7 +36,7 @@ test:
   # host: localhost
 
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: varietal
   pool: 5
   username: varietal
@@ -57,7 +57,7 @@ test:
 
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: varietal
   pool: 5
   username: varietal
