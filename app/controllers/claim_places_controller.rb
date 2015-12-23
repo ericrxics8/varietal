@@ -31,6 +31,7 @@ class ClaimPlacesController < ApplicationController
 
     # Rails.logger.debug("ClaimPlace!: #{@claimPlace.inspect}")
     #Rails.logger.debug("current_user: #{@claimPlace.inspect}")
+    Rails.logger.debug("longitude!: #{@claimPlace.longitude}")
 
     if @claimPlace.save
       Rails.logger.debug("ClaimPlace was saved !!!")
@@ -72,7 +73,7 @@ class ClaimPlacesController < ApplicationController
 
   private
     def claim_place_params
-      params.require(:claim_place).permit(:storeName, :address, :ownerPhone, :ownerEmail, :ownerWebsite, :owner, :description)
+      params.require(:claim_place).permit(:storeName, :address, :ownerPhone, :ownerEmail, :ownerWebsite, :owner, :description, :latitude, :longitude)
       # params[:claim_place].slice(:storeName, :address, :ownerEmail, :ownerPhone, :description, :owner, :ownerWebsite)
     end
 

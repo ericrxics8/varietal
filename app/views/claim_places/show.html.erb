@@ -10,7 +10,12 @@
                 :class => "btn btn-mini btn-primary")%>
     </div>
 
-    <strong><%= @claimPlace.address %></strong><br>
+    <a href="https://www.google.com.tw/maps/place/<%=@claimPlace.address%>/@<%= @claimPlace.latitude%>,<%= @claimPlace.longitude%>,20z" target="_blank">
+      <img class="icon-location" src="/assets/icon-location.png">
+      <strong><%= @claimPlace.address %></strong>
+    </a>
+    <br>
+
     <abbr title="Phone">Phone:</abbr> <%= @claimPlace.ownerPhone %><br>
     <a href="mailto:#"><%= @claimPlace.ownerEmail %></a>
   </address>
