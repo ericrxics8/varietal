@@ -2,7 +2,7 @@
   <div class="row">
     <div class="scaaItem col-xs-12 col-sm-3 col-md-2 col-lg-2">
       <div class="scaaScores">
-          <%= f.input :productName,:input_html => { :class => "scaaScore", :placeholder=>"Product Name"}, label: false %>
+          <%= f.input :productName,:input_html => { :class => "scaaScore", :placeholder=>"ProductName"}, label: false %>
           <%= f.input :fragrance, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Fragrance/Aroma"}, label: false %>
           <%= f.input :flavor, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Flavor"}, label: false %>
           <%= f.input :aftertaste, as: :float, :input_html => { :class => "scaaScore", :placeholder=>"Aftertaste"}, label: false %>
@@ -31,12 +31,3 @@
   </div>
 
 <% end %>
-
-<script type="text/javascript">
-    $('input.scaaScore').floatlabel({
-        transitionDuration: 0.3,
-        transitionEasing: 'ease-in-out',
-        labelStartTop: '33px',
-        top: '4px'
-    });
-</script>
