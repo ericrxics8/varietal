@@ -20,7 +20,7 @@
     <a href="mailto:#"><%= @claimPlace.ownerEmail %></a>
   </address>
 
-  <div class="storeDescription span12 ckeditor">  
+  <div class="storeDescription span12 ckeditor">
     <%= simple_format(@claimPlace.description) %>
   </div>
 
@@ -98,13 +98,15 @@
               <td><%= product.totalScore %></td>
             </tr>
           </table>
-        </div>        
-        
+        </div>
+
         <div class="span6">
           <div class="adminActions">
-            <% if product.user_id == current_user.id %>
-              <%= link_to("Edit", edit_claim_place_product_path(product.claim_place_id, product), :class=>"btn btn-mini")%>
-              <%= link_to("Delete", claim_place_product_path(product.claim_place_id, product), :class => "btn btn-mini",:method=>:delete,:confirm=>"Are you sure?")%>
+            <% if current_user != nil %>
+              <% if product.user_id == current_user.id %>
+                <%= link_to("Edit", edit_claim_place_product_path(product.claim_place_id, product), :class=>"btn btn-mini")%>
+                <%= link_to("Delete", claim_place_product_path(product.claim_place_id, product), :class => "btn btn-mini",:method=>:delete,:confirm=>"Are you sure?")%>
+              <% end %>
             <% end %>
           </div>
 
@@ -120,9 +122,9 @@
 </div>
 
 <style type="text/css">
-  
+
 </style>
 
 <script type="text/javascript">
-  
+
 </script>
